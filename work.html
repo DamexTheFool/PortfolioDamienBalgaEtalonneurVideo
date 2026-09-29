@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fr" data-i18n-title="work.title" data-i18n-desc="work.desc">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réalisations — Damien Balga · Colorist</title>
+  <meta name="description" content="Projets de color grading de Damien Balga : films, clips, publicités, court-métrages.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* =============================================
+       BARRE DE FILTRES
+       Chaque bouton porte data-filter="xxx".
+       La pastille .count affiche le nb de projets.
+       ============================================= */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      color: var(--dim);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .filter-btn .count {
+      background: rgba(240,237,232,0.07);
+      border-radius: 20px;
+      padding: 1px 7px;
+      font-size: 0.65rem;
+      transition: background 0.22s ease;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .filter-btn:hover {
+      border-color: rgba(232,130,42,0.5);
+      color: var(--white);
+    }
+    .filter-btn.active {
+      border-color: var(--orange);
+      color: var(--orange);
+      background: rgba(232,130,42,0.09);
+    }
+    .filter-btn.active .count {
+      background: rgba(232,130,42,0.18);
+    }
+
+    /* =============================================
+       GRILLE + ANIMATIONS DE FILTRAGE
+       .hidden  : transition opacity+scale (350ms)
+       .removed : display:none après la transition
+       ============================================= */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      /* La grille ne "saute" pas pendant les transitions
+         grâce au délai avant display:none             */
+    }
+
+    .work-item {
+      transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.3s ease;
+    }
+    .work-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    /* Masqué visuellement mais toujours dans le flux */
+    .work-item.is-hiding {
+      opacity: 0;
+      transform: scale(0.96);
+      pointer-events: none;
+    }
+    /* Complètement sorti du flux */
+    .work-item.is-hidden {
+      display: none;
+    }
+
+    /* Message aucun résultat */
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 64px 20px;
+      display: none;
+    }
+    .no-results.visible { display: block; }
+    .no-results .no-res-icon { font-size: 2.5rem; margin-bottom: 16px; opacity: 0.4; }
+    .no-results p {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--dimmer);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .work-grid { grid-template-columns: 1fr; }
+      .filter-bar { gap: 6px; }
+      .filter-btn { font-size: 0.68rem; padding: 7px 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cinematic-bg" aria-hidden="true"><div class="cinematic-bg-c"></div></div>
+
+<!-- INTRO -->
+<div class="intro" aria-hidden="true">
+  <div class="intro-scanline"></div>
+  <div class="intro-content">
+    <h1 data-i18n="work.intro.h1">Réalisations</h1>
+    <p class="intro-sub">Damien Balga · Colorist</p>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo" role="button" tabindex="0">
+    <div class="logo-dot" aria-hidden="true"></div>
+    Damien Balga
+  </div>
+  <div class="lang-switch" role="group" aria-label="Langue" data-i18n-attr="aria-label:lang.group">
+    <button type="button" class="lang-btn active" data-lang="fr" lang="fr" aria-pressed="true" aria-label="Français" title="Français">FR</button>
+    <button type="button" class="lang-btn" data-lang="en" lang="en" aria-pressed="false" aria-label="English" title="English">EN</button>
+    <button type="button" class="lang-btn" data-lang="de" lang="de" aria-pressed="false" aria-label="Deutsch" title="Deutsch">DE</button>
+  </div>
+
+  <button class="menu-toggle" data-i18n-attr="aria-label:menu.label" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav>
+    <a href="index.html" data-i18n="nav.home">Accueil</a>
+    <a href="work.html" class="active" data-i18n="nav.work">Réalisations</a>
+    <a href="stills.html" data-i18n="nav.stills">Stills</a>
+    <a href="index.html#before" data-i18n="nav.ba">Avant / Après</a>
+    <a href="index.html#about" data-i18n="nav.about">À propos</a>
+    <a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero-section">
+  <div class="fade-up">
+    <span class="ph-eyebrow" data-i18n="work.eyebrow">Portfolio vidéo</span>
+    <h1 data-i18n="work.h1">Mes Réalisations</h1>
+    <p data-i18n="work.sub">Color grading · Films · Publicités · Clips · Court-métrages</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     GRILLE VIDÉOS
+     Chaque .work-item porte data-category="film|publicite|regrade|loisir"
+     Le script en bas gère le filtrage animé.
+     ============================================================ -->
+<div class="work-grid-section">
+
+  <!-- BARRE DE FILTRES -->
+  <div class="filter-bar fade-up" role="group" aria-label="Filtrer par catégorie" data-i18n-attr="aria-label:work.filter.aria">
+    <button class="filter-btn active" data-filter="all">
+      <span data-i18n="work.f.all">Tout</span>&nbsp;<span class="count" id="cnt-all">0</span>
+    </button>
+    <button class="filter-btn" data-filter="film">
+      <span data-i18n="work.f.film">Film</span>&nbsp;<span class="count" id="cnt-film">0</span>
+    </button>
+    <button class="filter-btn" data-filter="publicite">
+      <span data-i18n="work.f.ad">Publicité</span>&nbsp;<span class="count" id="cnt-publicite">0</span>
+    </button>
+    <button class="filter-btn" data-filter="loisir">
+      <span data-i18n="work.f.leisure">Loisir</span>&nbsp;<span class="count" id="cnt-loisir">0</span>
+    </button>
+    <button class="filter-btn" data-filter="regrade">
+      <span data-i18n="work.f.regrade">Regrade</span>&nbsp;<span class="count" id="cnt-regrade">0</span>
+    </button>
+    <button class="filter-btn" data-filter="animalier">
+      <span data-i18n="work.f.animalier">Animalier</span>&nbsp;<span class="count" id="cnt-animalier">0</span>
+    </button>
+  </div>
+
+  <!-- GRILLE -->
+  <div class="work-grid" id="workGrid">
+
+    <!-- Message aucun résultat (masqué par défaut) -->
+    <div class="no-results" id="noResults" aria-live="polite">
+      <div class="no-res-icon">🎬</div>
+      <p data-i18n="work.none">// Aucun projet dans cette catégorie</p>
+    </div>
+
+
+    <!-- ── FIRST ───────────────────────────────── -->
+    <div class="work-item fade-up" data-category="loisir">
+      <iframe
+        src="https://player.vimeo.com/video/1206544537?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="Army Of Two">
+      </iframe>
+      <div class="work-info">
+        <h3>Army Of Two</h3>
+        <p data-i18n="type.leisure">Loisir</p>
+      </div>
+    </div>
+    
+    <div class="work-item fade-up" data-category="loisir">
+      <iframe
+        src="https://player.vimeo.com/video/1194335809?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="Ducati FILA">
+      </iframe>
+      <div class="work-info">
+        <h3>Ducati FILA</h3>
+        <p data-i18n="type.leisure">Loisir</p>
+      </div>
+    </div>
+
+    <div class="work-item fade-up" data-category="loisir">
+      <iframe
+        src="https://player.vimeo.com/video/1194072778?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="Lamborghini">
+      </iframe>
+      <div class="work-info">
+        <h3>Lamborghini</h3>
+        <p data-i18n="type.leisure">Loisir</p>
+      </div>
+    </div>
+
+    <!-- ── FILM ─────────────────────────────────── -->
+    <div class="work-item fade-up" data-category="film">
+      <iframe
+        src="https://player.vimeo.com/video/1191123928?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="La Pomme">
+      </iframe>
+      <div class="work-info">
+        <h3>La Pomme</h3>
+        <p data-i18n="type.interactive">Film Interactif</p>
+      </div>
+    </div>
+
+    <!-- ── PUBLICITÉ ────────────────────────────── -->
+    <div class="work-item fade-up" data-category="publicite">
+      <iframe
+        src="https://player.vimeo.com/video/1191127946?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="Serfa">
+      </iframe>
+      <div class="work-info">
+        <h3>Serfa</h3>
+        <p data-i18n="type.ad">Publicité</p>
+      </div>
+    </div>
+
+    <div class="work-item fade-up" data-category="publicite">
+      <iframe
+        src="https://player.vimeo.com/video/1194082316?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="Serfa">
+      </iframe>
+      <div class="work-info">
+        <h3>Brasserie L'Imprimerie</h3>
+        <p data-i18n="type.ad">Publicité</p>
+      </div>
+    </div>
+
+    <div class="work-item fade-up" data-category="publicite">
+      <iframe
+        src="https://player.vimeo.com/video/1194082315?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="Serfa">
+      </iframe>
+      <div class="work-info">
+        <h3>Brasserie L'Imprimerie</h3>
+        <p data-i18n="type.ad">Publicité</p>
+      </div>
+    </div>
+
+    <div class="work-item fade-up" data-category="publicite">
+      <iframe
+        src="https://player.vimeo.com/video/1194082314?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="Serfa">
+      </iframe>
+      <div class="work-info">
+        <h3>Brasserie L'Imprimerie</h3>
+        <p data-i18n="type.ad">Publicité</p>
+      </div>
+    </div>
+
+    <!-- ── LOISIR ───────────────────────────────── -->
+
+    <div class="work-item fade-up" data-category="loisir">
+      <iframe
+        src="https://player.vimeo.com/video/1191140957?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="Swirly Bokeh">
+      </iframe>
+      <div class="work-info">
+        <h3>Swirly Bokeh</h3>
+        <p data-i18n="type.leisure">Loisir</p>
+      </div>
+    </div>
+
+        <div class="work-item fade-up" data-category="loisir">
+      <iframe
+        src="https://player.vimeo.com/video/1182735096?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="Combat Master TTI">
+      </iframe>
+      <div class="work-info">
+        <h3>Combat Master TTI</h3>
+        <p data-i18n="type.leisure">Loisir</p>
+      </div>
+    </div>
+
+    <!-- ── REGRADE ──────────────────────────────── -->
+    <div class="work-item fade-up" data-category="regrade">
+      <iframe
+        src="https://player.vimeo.com/video/1182735082?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="La Chasse">
+      </iframe>
+      <div class="work-info">
+        <h3>La Chasse</h3>
+        <p data-i18n="type.regrade">Regrade cinématographique</p>
+      </div>
+    </div>
+
+    <div class="work-item fade-up" data-category="regrade">
+      <iframe
+        src="https://player.vimeo.com/video/1205273780?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="True Detective">
+      </iframe>
+      <div class="work-info">
+        <h3>True Detective</h3>
+        <p data-i18n="type.regrade">Regrade cinématographique</p>
+      </div>
+    </div>
+
+    <div class="work-item fade-up" data-category="regrade">
+      <iframe
+        src="https://player.vimeo.com/video/1194122516?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="La Chasse">
+      </iframe>
+      <div class="work-info">
+        <h3>Split Blue Look ARRI</h3>
+        <p data-i18n="type.regrade">Regrade cinématographique</p>
+      </div>
+    </div>
+
+    <div class="work-item fade-up" data-category="regrade">
+      <iframe
+        src="https://player.vimeo.com/video/1194123737?autoplay=0&muted=1&title=0&byline=0"
+        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        loading="lazy" title="La Chasse">
+      </iframe>
+      <div class="work-info">
+        <h3>Hannibal Look ARRI</h3>
+        <p data-i18n="type.regrade">Regrade cinématographique</p>
+      </div>
+    </div>
+
+
+    <!-- ── ANIMALIER (YouTube) ───────────────────── -->
+    <div class="work-item fade-up" data-category="animalier">
+      <iframe
+        src="https://www.youtube.com/embed/8PMYLclYIkM"
+        title="Panda Roux"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="work-info">
+        <h3>Panda Roux</h3>
+        <p data-i18n="type.wildlife">Animalier</p>
+      </div>
+    </div>
+    <div class="work-item fade-up" data-category="animalier">
+      <iframe
+        src="https://www.youtube.com/embed/t1RJhM52eE4"
+        title="Mangouste naine qui se chamaille"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="work-info">
+        <h3>Mangouste naine qui se chamaille</h3>
+        <p data-i18n="type.wildlife">Animalier</p>
+      </div>
+    </div>
+    <div class="work-item fade-up" data-category="animalier">
+      <iframe
+        src="https://www.youtube.com/embed/J5mCvtMPABY"
+        title="Serin des Canaries qui mange"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="work-info">
+        <h3>Serin des Canaries qui mange</h3>
+        <p data-i18n="type.wildlife">Animalier</p>
+      </div>
+    </div>
+    <div class="work-item fade-up" data-category="animalier">
+      <iframe
+        src="https://www.youtube.com/embed/P-Pjh-xJbHA"
+        title="Lynx Boréal"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="work-info">
+        <h3>Lynx Boréal</h3>
+        <p data-i18n="type.wildlife">Animalier</p>
+      </div>
+    </div>
+    <div class="work-item fade-up" data-category="animalier">
+      <iframe
+        src="https://www.youtube.com/embed/wlmh8d6By48"
+        title="Loutre Naine"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="work-info">
+        <h3>Loutre Naine</h3>
+        <p data-i18n="type.wildlife">Animalier</p>
+      </div>
+    </div>
+    <div class="work-item fade-up" data-category="animalier">
+      <iframe
+        src="https://www.youtube.com/embed/opJ5KAMYfMc"
+        title="Fauvette à tête noire femelle"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="work-info">
+        <h3>Fauvette à tête noire femelle</h3>
+        <p data-i18n="type.wildlife">Animalier</p>
+      </div>
+    </div>
+    <div class="work-item fade-up" data-category="animalier">
+      <iframe
+        src="https://www.youtube.com/embed/VVj7Xp8Wu74"
+        title="Rougequeue Noir"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="work-info">
+        <h3>Rougequeue Noir</h3>
+        <p data-i18n="type.wildlife">Animalier</p>
+      </div>
+    </div>
+    <div class="work-item fade-up" data-category="animalier">
+      <iframe
+        src="https://www.youtube.com/embed/5cDvUrfC978"
+        title="Martin Pêcheur"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="work-info">
+        <h3>Martin Pêcheur</h3>
+        <p data-i18n="type.wildlife">Animalier</p>
+      </div>
+    </div>
+    <div class="work-item fade-up" data-category="animalier">
+      <iframe
+        src="https://www.youtube.com/embed/nm7ufa0LR58"
+        title="Colvert"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="work-info">
+        <h3>Colvert</h3>
+        <p data-i18n="type.wildlife">Animalier</p>
+      </div>
+    </div>
+
+  </div><!-- /#workGrid -->
+</div><!-- /.work-grid-section -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-logo">
+      <div style="width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);flex-shrink:0;"></div>
+      Damien Balga
+    </div>
+    <p data-i18n="footer.role">Étalonneur Vidéo · Coloriste</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.youtube.com/@damienbalga" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/damien.balga/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/damien-balga-étudiant-création-numérique-colorimétrie-cinéma-montage-graphisme/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="footer-right">© 2026 — Damien Balga</div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script>
+/* =============================================
+   FILTRES RÉALISATIONS
+   ─────────────────────────────────────────────
+   Architecture :
+   • Chaque vidéo a data-category="film|publicite|regrade|loisir"
+   • Les boutons ont data-filter="all|film|publicite|regrade|loisir"
+   • filterItems(cat) :
+       – ajoute .is-hiding (opacity:0 + scale) sur les items à cacher
+       – après 350ms (durée transition CSS) : ajoute .is-hidden (display:none)
+       – sur les items à montrer : retire .is-hidden, force reflow, retire .is-hiding
+   • Les compteurs sont calculés une fois au chargement.
+   ============================================= */
+(function initFilters() {
+
+  const TRANSITION_MS = 350;
+
+  const allItems = Array.from(document.querySelectorAll('.work-item[data-category]'));
+  const buttons  = document.querySelectorAll('.filter-btn[data-filter]');
+  const noRes    = document.getElementById('noResults');
+
+  // ── Calcule les compteurs ──────────────────────────
+  const counts = { all: allItems.length };
+  allItems.forEach(item => {
+    const c = item.dataset.category;
+    counts[c] = (counts[c] || 0) + 1;
+  });
+
+  // Injecte les compteurs dans les boutons
+  buttons.forEach(btn => {
+    const f   = btn.dataset.filter;
+    const el  = document.getElementById('cnt-' + f);
+    if (el) el.textContent = counts[f] !== undefined ? counts[f] : 0;
+  });
+
+  // ── Filtre principal ──────────────────────────────
+  let currentFilter = 'all';
+  let hideTimers    = []; // garde les setTimeout pour les annuler si filtre change vite
+
+  function filterItems(filter) {
+    currentFilter = filter;
+
+    // Annule les timers précédents
+    hideTimers.forEach(t => clearTimeout(t));
+    hideTimers = [];
+
+    let visible = 0;
+
+    allItems.forEach(item => {
+      const match = filter === 'all' || item.dataset.category === filter;
+
+      if (match) {
+        // ── Afficher ──
+        // 1. Sortir de display:none
+        item.classList.remove('is-hidden');
+        // 2. Forcer reflow pour activer la transition
+        void item.offsetWidth;
+        // 3. Déclencher l'animation d'apparition
+        item.classList.remove('is-hiding');
+        visible++;
+      } else {
+        // ── Masquer ──
+        // 1. Déclencher l'animation de disparition
+        item.classList.add('is-hiding');
+        // 2. Après la transition, sortir du flux
+        const t = setTimeout(() => {
+          if (item.classList.contains('is-hiding')) {
+            item.classList.add('is-hidden');
+          }
+        }, TRANSITION_MS);
+        hideTimers.push(t);
+      }
+    });
+
+    // Message aucun résultat
+    noRes.classList.toggle('visible', visible === 0);
+  }
+
+  // ── Écouteurs boutons ─────────────────────────────
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterItems(btn.dataset.filter);
+    });
+  });
+
+  // ── Init : tout afficher ──────────────────────────
+  filterItems('all');
+
+})();
+</script>
+</body>
+</html>

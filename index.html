@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr" data-i18n-title="index.title" data-i18n-desc="index.desc">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Damien Balga — Étalonneur Vidéo · Colorist</title>
+  <meta name="description" content="Portfolio de Damien Balga, étalonneur vidéo & coloriste. Color grading cinéma, clips, publicités. DaVinci Resolve.">
+
+  <!-- Google Fonts : Space Grotesk (display) + Inter (body) + IBM Plex Mono (tech labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Fond animé cinématique -->
+<div class="cinematic-bg" aria-hidden="true">
+  <div class="cinematic-bg-c"></div>
+</div>
+
+<!-- ======================================================
+     ÉCRAN D'INTRO
+     Style "scan de pellicule" avec effet flicker
+     ====================================================== -->
+<div class="intro" aria-hidden="true">
+  <div class="intro-scanline"></div>
+  <div class="intro-content">
+    <h1>Damien Balga</h1>
+    <p class="intro-sub">Colorist · DaVinci Resolve</p>
+  </div>
+</div>
+
+<!-- ======================================================
+     HEADER
+     ====================================================== -->
+<header>
+  <div class="logo" role="button" tabindex="0" aria-label="Retour accueil" data-i18n-attr="aria-label:logo.aria">
+    <div class="logo-dot" aria-hidden="true"></div>
+    Damien Balga
+  </div>
+
+  <div class="lang-switch" role="group" aria-label="Langue" data-i18n-attr="aria-label:lang.group">
+    <button type="button" class="lang-btn active" data-lang="fr" lang="fr" aria-pressed="true" aria-label="Français" title="Français">FR</button>
+    <button type="button" class="lang-btn" data-lang="en" lang="en" aria-pressed="false" aria-label="English" title="English">EN</button>
+    <button type="button" class="lang-btn" data-lang="de" lang="de" aria-pressed="false" aria-label="Deutsch" title="Deutsch">DE</button>
+  </div>
+
+  <button class="menu-toggle" data-i18n-attr="aria-label:menu.open" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav aria-label="Navigation principale" data-i18n-attr="aria-label:nav.aria">
+    <a href="index.html" class="active" data-i18n="nav.home">Accueil</a>
+    <a href="work.html" data-i18n="nav.work">Réalisations</a>
+    <a href="stills.html" data-i18n="nav.stills">Stills</a>
+    <a href="#before" data-i18n="nav.ba">Avant / Après</a>
+    <a href="#about" data-i18n="nav.about">À propos</a>
+    <a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ======================================================
+     HERO
+     Présentation + portrait flottant + stats
+     ====================================================== -->
+<section aria-label="Présentation" data-i18n-attr="aria-label:index.hero.aria" style="background:transparent;">
+  <div class="hero">
+
+    <!-- Texte gauche -->
+    <div class="hero-left fade-up">
+
+      <!-- Badge disponibilité -->
+      <div class="hero-badge">
+        <span data-i18n="index.hero.badge">Disponible pour vos projets</span>
+      </div>
+
+      <h1 data-i18n="index.hero.h1">
+        Étalonneur<br>
+        <span class="accent-orange">Vidéo</span> &amp;
+        <span class="accent-cyan">Coloriste</span>
+      </h1>
+
+      <p class="hero-tagline">// DaVinci Resolve · Color Grading · Look Development</p>
+
+      <p class="hero-desc" data-i18n="index.hero.desc">
+        Je donne une <strong>identité visuelle forte</strong> à vos images.
+        Films, clips, publicités — chaque image est traitée avec une approche
+        sur mesure, inspirée du cinéma et des standards des productions modernes.
+      </p>
+
+      <div class="hero-actions">
+        <a href="work.html" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span data-i18n="index.hero.cta1">Voir mes réalisations</span>
+        </a>
+        <a href="contact.html" class="btn btn-secondary" data-i18n="index.hero.cta2">Travaillons ensemble</a>
+      </div>
+
+      <!-- Statistiques rapides -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" data-counter data-target="10" data-suffix="+">10+</span>
+          <span class="stat-label" data-i18n="index.stat.projects">Projets</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-counter data-target="3">3</span>
+          <span class="stat-label" data-i18n="index.stat.formats">Formats</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">1</span>
+          <span class="stat-label" data-i18n="index.stat.tool">Outil · DaVinci</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portrait droit -->
+    <div class="hero-right fade-up" style="transition-delay:0.2s">
+      <div class="portrait-wrap">
+        <div class="portrait-frame">
+          <img src="img/PP.jpg" alt="Damien Balga – Étalonneur vidéo" data-i18n-attr="alt:index.portrait.alt">
+        </div>
+        <!-- Badge flottant -->
+        <div class="portrait-badge">
+          <span class="pb-label" data-i18n="index.pb.label">Logiciel</span>
+          <span class="pb-value">DaVinci Resolve</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================
+     EXTRAITS VIDÉO (fullscreen reels)
+     Trois extraits Vimeo en plein format 16:9
+     ====================================================== -->
+<section id="reels" aria-labelledby="reels-title" style="background: var(--bg);">
+  <div style="max-width:1200px; margin:0 auto; padding:80px 48px 40px;">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow">Showreel</span>
+      <h2 id="reels-title" data-i18n="index.reels.h2">Extraits de projets</h2>
+      <p data-i18n="index.reels.p">Quelques aperçus de mes étalonnages — plein format.</p>
+      <div class="divider"><span class="d-dot"></span></div>
+    </div>
+  </div>
+
+  <!-- Reel 1 -->
+  <div class="reel-block fade-up" data-reel="1">
+    <div class="reel-loader"><div class="spinner"></div></div>
+    <iframe
+      data-src="https://player.vimeo.com/video/1191140957?autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
+      allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+      title="Swirly Bokeh">
+    </iframe>
+    <div class="reel-overlay">
+      <div class="reel-info">
+        <div class="reel-num">01 / 05</div>
+        <div class="reel-title">Swirly Bokeh</div>
+        <div class="reel-type" data-i18n="type.leisure">Loisir</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reel 2 -->
+  <div class="reel-block fade-up" data-reel="2">
+    <div class="reel-loader"><div class="spinner"></div></div>
+    <iframe
+      data-src="https://player.vimeo.com/video/1191127946?autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
+      allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+      title="Serfa">
+    </iframe>
+    <div class="reel-overlay">
+      <div class="reel-info">
+        <div class="reel-num">02 / 05</div>
+        <div class="reel-title">Serfa</div>
+        <div class="reel-type" data-i18n="type.ad">Publicité</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reel 3 -->
+  <div class="reel-block fade-up" data-reel="2">
+    <div class="reel-loader"><div class="spinner"></div></div>
+    <iframe
+      data-src="https://player.vimeo.com/video/1191123928?autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
+      allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+      title="La Pomme">
+    </iframe>
+    <div class="reel-overlay">
+      <div class="reel-info">
+        <div class="reel-num">03 / 05</div>
+        <div class="reel-title">La Pomme</div>
+        <div class="reel-type" data-i18n="type.interactive">Film Interactif</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reel 4 -->
+  <div class="reel-block fade-up" data-reel="2">
+    <div class="reel-loader"><div class="spinner"></div></div>
+    <iframe
+      data-src="https://player.vimeo.com/video/1194072778?autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
+      allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+      title="Lamborghini">
+    </iframe>
+    <div class="reel-overlay">
+      <div class="reel-info">
+        <div class="reel-num">04 / 05</div>
+        <div class="reel-title">Lamborghini</div>
+        <div class="reel-type" data-i18n="type.leisure">Loisir</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reel 5 -->
+  <div class="reel-block fade-up" data-reel="2">
+    <div class="reel-loader"><div class="spinner"></div></div>
+    <iframe
+      data-src="https://player.vimeo.com/video/1206544537?autoplay=1&loop=1&muted=1&controls=0&autopause=0&playsinline=1"
+      allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+      title="Army Of Two">
+    </iframe>
+    <div class="reel-overlay">
+      <div class="reel-info">
+        <div class="reel-num">05 / 05</div>
+        <div class="reel-title">Army Of Two</div>
+        <div class="reel-type" data-i18n="type.leisurevfx">Loisir / VFX</div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div style="text-align:center; padding:48px 0;">
+    <a href="work.html" class="btn btn-secondary" data-i18n="index.reels.all">Voir toutes les réalisations →</a>
+  </div>
+</section>
+
+<!-- ======================================================
+     BEFORE / AFTER
+     Comparateurs interactifs souris/touch
+     ====================================================== -->
+<section id="before" class="showcase" aria-labelledby="ba-title">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="index.ba.eyebrow">Avant / Après</span>
+      <h2 id="ba-title" data-i18n="index.ba.h2">Before / After Grading</h2>
+      <p data-i18n="index.ba.p">Glissez pour comparer l'image brute et l'image étalonnée.</p>
+      <div class="divider"><span class="d-dot"></span></div>
+    </div>
+
+    <div class="compare-grid">
+
+      <div class="compare fade-up">
+        <img src="img/before.jpg" alt="Avant étalonnage" data-i18n-attr="alt:ba.before.alt" class="img-before">
+        <img src="img/after.jpg"  alt="Après étalonnage" data-i18n-attr="alt:ba.after.alt" class="img-after">
+        <div class="slider-line"></div>
+        <div class="slider-handle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/>
+          </svg>
+        </div>
+        <span class="compare-label before-lbl" data-i18n="ba.before">BEFORE</span>
+        <span class="compare-label after-lbl" data-i18n="ba.after">AFTER</span>
+      </div>
+
+      <div class="compare fade-up">
+        <img src="img/before2.jpg" alt="Avant étalonnage" data-i18n-attr="alt:ba.before.alt" class="img-before">
+        <img src="img/after2.jpg"  alt="Après étalonnage" data-i18n-attr="alt:ba.after.alt" class="img-after">
+        <div class="slider-line"></div>
+        <div class="slider-handle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/>
+          </svg>
+        </div>
+        <span class="compare-label before-lbl" data-i18n="ba.before">BEFORE</span>
+        <span class="compare-label after-lbl" data-i18n="ba.after">AFTER</span>
+      </div>
+
+      <div class="compare fade-up">
+        <img src="img/before3.jpg" alt="Avant étalonnage" data-i18n-attr="alt:ba.before.alt" class="img-before">
+        <img src="img/after3.jpg"  alt="Après étalonnage" data-i18n-attr="alt:ba.after.alt" class="img-after">
+        <div class="slider-line"></div>
+        <div class="slider-handle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/>
+          </svg>
+        </div>
+        <span class="compare-label before-lbl" data-i18n="ba.before">BEFORE</span>
+        <span class="compare-label after-lbl" data-i18n="ba.after">AFTER</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     À PROPOS
+     ====================================================== -->
+<section id="about" class="about-section" aria-labelledby="about-title">
+  <div class="section-inner">
+    <div class="about-grid">
+
+      <!-- Texte -->
+      <div class="about-text fade-up">
+        <span class="section-eyebrow" data-i18n="index.about.eyebrow">À propos</span>
+        <h2 id="about-title" data-i18n="index.about.h2">Passion pour<br>la couleur</h2>
+
+        <p class="about-lead" data-i18n="index.about.lead">
+          Je suis étalonneur vidéo spécialisé dans la <strong>création de look</strong>
+          et d'émotions à travers la couleur.
+        </p>
+
+        <p data-i18n="index.about.p1">
+          J'aide les réalisateurs, marques et créateurs à donner une identité visuelle
+          forte à leurs images. Mon travail se concentre sur la lumière, le contraste
+          et la cohérence des couleurs afin de créer une ambiance unique et narrative.
+        </p>
+
+        <p data-i18n="index.about.p2">
+          Chaque projet est traité avec une approche sur mesure, inspirée du cinéma
+          et des standards des productions modernes.
+        </p>
+
+        <div class="about-tags">
+          <span class="tag tag-orange">Color Grading</span>
+          <span class="tag tag-cyan">Look Development</span>
+          <span class="tag" data-i18n="tag.film">Film</span>
+          <span class="tag" data-i18n="tag.clip">Clip</span>
+          <span class="tag" data-i18n="tag.ad">Publicité</span>
+          <span class="tag" data-i18n="tag.short">Court-métrage</span>
+          <span class="tag tag-orange">DaVinci Resolve</span>
+          <span class="tag">LUT Design</span>
+        </div>
+
+        <div style="margin-top:36px; display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="work.html" class="btn btn-primary" data-i18n="index.about.btn1">Mes réalisations</a>
+          <a href="contact.html" class="btn btn-secondary" data-i18n="index.about.btn2">Me contacter</a>
+        </div>
+      </div>
+
+      <!-- Carte technique décorative -->
+      <div class="about-visual fade-up" style="transition-delay:0.15s">
+        <div class="tech-card">
+          <!-- Barre de titre style éditeur -->
+          <div class="tech-card-header">
+            <div class="dot-row">
+              <div class="tc-dot tc-dot-r"></div>
+              <div class="tc-dot tc-dot-y"></div>
+              <div class="tc-dot tc-dot-g"></div>
+            </div>
+            <span class="tc-title">color_grade.drx</span>
+          </div>
+
+          <!-- Barres de compétences colorimétrie -->
+          <div class="scope-row">
+            <div class="scope-item">
+              <div class="scope-label">
+                <span data-i18n="scope.cg">Color Grading</span>
+                <span data-i18n="scope.expert">Expert</span>
+              </div>
+              <div class="scope-bar">
+                <div class="scope-fill fill-orange w-90"></div>
+              </div>
+            </div>
+            <div class="scope-item">
+              <div class="scope-label">
+                <span data-i18n="scope.lookdev">Look Development</span>
+                <span data-i18n="scope.advanced">Avancé</span>
+              </div>
+              <div class="scope-bar">
+                <div class="scope-fill fill-cyan w-80"></div>
+              </div>
+            </div>
+            <div class="scope-item">
+              <div class="scope-label">
+                DaVinci Resolve
+                <span data-i18n="scope.expert">Expert</span>
+              </div>
+              <div class="scope-bar">
+                <div class="scope-fill fill-orange w-85"></div>
+              </div>
+            </div>
+            <div class="scope-item">
+              <div class="scope-label">
+                <span data-i18n="scope.film">Étalonnage Film</span>
+                <span data-i18n="scope.advanced">Avancé</span>
+              </div>
+              <div class="scope-bar">
+                <div class="scope-fill fill-violet w-75"></div>
+              </div>
+            </div>
+            <div class="scope-item">
+              <div class="scope-label">
+                VFX / Compositing
+                <span data-i18n="scope.inter">Intermédiaire</span>
+              </div>
+              <div class="scope-bar">
+                <div class="scope-fill fill-cyan w-70"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Forme d'onde décorative -->
+          <div class="waveform" aria-hidden="true" title="Waveform colorimétrie"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-logo">
+      <div class="logo-dot" aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);flex-shrink:0;"></div>
+      Damien Balga
+    </div>
+    <p data-i18n="footer.role">Étalonneur Vidéo · Coloriste</p>
+  </div>
+
+  <div class="footer-links">
+    <a href="https://www.youtube.com/@damienbalga" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/damien.balga/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/damien-balga-étudiant-création-numérique-colorimétrie-cinéma-montage-graphisme/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+
+  <div class="footer-right">© 2026 — Damien Balga</div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

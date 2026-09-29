@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr" data-i18n-title="stills.title" data-i18n-desc="stills.desc">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stills — Damien Balga · Colorist</title>
+  <meta name="description" content="Stills de color grading de Damien Balga — frames extraites de ses projets.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Grille Stills — le CSS principal (style.css) gère
+       les .still-item et images. On surcharge juste
+       la colonne wide pour ce layout 3 colonnes.       */
+    .still-item.wide {
+      grid-column: span 3;
+    }
+    @media (max-width: 900px) {
+      .still-item.wide { grid-column: span 2; }
+    }
+    @media (max-width: 480px) {
+      .still-item.wide { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cinematic-bg" aria-hidden="true"><div class="cinematic-bg-c"></div></div>
+
+<!-- INTRO -->
+<div class="intro" aria-hidden="true">
+  <div class="intro-scanline"></div>
+  <div class="intro-content">
+    <h1>Stills</h1>
+    <p class="intro-sub">Damien Balga · Colorist</p>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo" role="button" tabindex="0">
+    <div class="logo-dot" aria-hidden="true"></div>
+    Damien Balga
+  </div>
+  <div class="lang-switch" role="group" aria-label="Langue" data-i18n-attr="aria-label:lang.group">
+    <button type="button" class="lang-btn active" data-lang="fr" lang="fr" aria-pressed="true" aria-label="Français" title="Français">FR</button>
+    <button type="button" class="lang-btn" data-lang="en" lang="en" aria-pressed="false" aria-label="English" title="English">EN</button>
+    <button type="button" class="lang-btn" data-lang="de" lang="de" aria-pressed="false" aria-label="Deutsch" title="Deutsch">DE</button>
+  </div>
+
+  <button class="menu-toggle" data-i18n-attr="aria-label:menu.label" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav>
+    <a href="index.html" data-i18n="nav.home">Accueil</a>
+    <a href="work.html" data-i18n="nav.work">Réalisations</a>
+    <a href="stills.html" class="active" data-i18n="nav.stills">Stills</a>
+    <a href="index.html#before" data-i18n="nav.ba">Avant / Après</a>
+    <a href="index.html#about" data-i18n="nav.about">À propos</a>
+    <a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero-section">
+  <div class="fade-up">
+    <span class="ph-eyebrow" data-i18n="stills.eyebrow">Frames étalonnées</span>
+    <h1 data-i18n="stills.h1">Stills de Projets</h1>
+    <p data-i18n="stills.sub">Films · Publicités · Animalier · Loisir — cliquez pour agrandir</p>
+  </div>
+</div>
+
+<!-- GRILLE STILLS -->
+<div class="stills-grid-section">
+  <div class="stills-grid">
+
+    <!-- Grille complète avec toutes les images disponibles -->
+    <!-- La classe "wide" s'applique sur certains items pour créer un rythme visuel -->
+
+    <div class="still-item wide fade-up">
+      <img src="img/Post (19).jpg" alt="Lamborghini"
+           data-lightbox="img/Post (19).jpg" data-caption="Loisir" data-i18n-attr="data-caption:type.leisure">
+      <div class="still-item-overlay">
+        <div><h4>Le Musée de l'Automobile</h4><span data-i18n="type.leisure">Loisir</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (20).jpg" alt="Lamborghini"
+           data-lightbox="img/Post (20).jpg" data-caption="Loisir" data-i18n-attr="data-caption:type.leisure">
+      <div class="still-item-overlay">
+        <div><h4>Le Musée de l'Automobile</h4><span data-i18n="type.leisure">Loisir</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (21).jpg" alt="Lamborghini"
+           data-lightbox="img/Post (21).jpg" data-caption="Loisir" data-i18n-attr="data-caption:type.leisure">
+      <div class="still-item-overlay">
+        <div><h4>Le Musée de l'Automobile</h4><span data-i18n="type.leisure">Loisir</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (22).jpg" alt="Lamborghini"
+           data-lightbox="img/Post (22).jpg" data-caption="Loisir" data-i18n-attr="data-caption:type.leisure">
+      <div class="still-item-overlay">
+        <div><h4>Le Musée de l'Automobile</h4><span data-i18n="type.leisure">Loisir</span></div>
+      </div>
+    </div>
+
+    <div class="still-item wide fade-up">
+      <img src="img/post2.jpg" alt="La Chasse – Still 1"
+           data-lightbox="img/post2.jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/post3.jpg" alt="La Chasse – Still 2"
+           data-lightbox="img/post3.jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/post4.jpg" alt="Still 3"
+           data-lightbox="img/post4.jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (5).jpg" alt="Still 4"
+           data-lightbox="img/Post (5).jpg" data-caption="Loisir" data-i18n-attr="data-caption:type.leisure">
+      <div class="still-item-overlay">
+        <div><h4>Les Fleurs du Beau Temps</h4><span data-i18n="type.leisure">Loisir</span></div>
+      </div>
+    </div>
+
+    <div class="still-item wide fade-up">
+      <img src="img/Post (6).jpg" alt="Still 5"
+           data-lightbox="img/Post (6).jpg" data-caption="Film Interactif" data-i18n-attr="data-caption:type.interactive">
+      <div class="still-item-overlay">
+        <div><h4>La Pomme</h4><span data-i18n="type.interactive">Film Interactif</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (7).jpg" alt="Still 6"
+           data-lightbox="img/Post (7).jpg" data-caption="Film Interactif" data-i18n-attr="data-caption:type.interactive">
+      <div class="still-item-overlay">
+        <div><h4>La Pomme</h4><span data-i18n="type.interactive">Film Interactif</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (8).jpg" alt="Still 7"
+           data-lightbox="img/Post (8).jpg" data-caption="Film Interactif" data-i18n-attr="data-caption:type.interactive">
+      <div class="still-item-overlay">
+        <div><h4>La Pomme</h4><span data-i18n="type.interactive">Film Interactif</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (9).jpg" alt="Still 8"
+           data-lightbox="img/Post (9).jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>Serfa</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item wide fade-up">
+      <img src="img/Post (10).jpg" alt="Still 9"
+           data-lightbox="img/Post (10).jpg" data-caption="Animalier" data-i18n-attr="data-caption:type.wildlife">
+      <div class="still-item-overlay">
+        <div><h4>Northon</h4><span data-i18n="type.wildlife">Animalier</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (11).jpg" alt="Still 10"
+           data-lightbox="img/Post (11).jpg" data-caption="Animalier" data-i18n-attr="data-caption:type.wildlife">
+      <div class="still-item-overlay">
+        <div><h4>Ruby</h4><span data-i18n="type.wildlife">Animalier</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (12).jpg" alt="Still 11"
+           data-lightbox="img/Post (12).jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (13).jpg" alt="Still 12"
+           data-lightbox="img/Post (13).jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item wide fade-up">
+      <img src="img/Post (14).jpg" alt="Still 13"
+           data-lightbox="img/Post (14).jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (15).jpg" alt="Still 14"
+           data-lightbox="img/Post (15).jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (16).jpg" alt="Still 15"
+           data-lightbox="img/Post (16).jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/Post (17).jpg" alt="Still 16"
+           data-lightbox="img/Post (17).jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item wide fade-up">
+      <img src="img/Post (18).jpg" alt="Still 17"
+           data-lightbox="img/Post (18).jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+    <div class="still-item fade-up">
+      <img src="img/post1.jpg" alt="Still 18"
+           data-lightbox="img/post1.jpg" data-caption="Publicité" data-i18n-attr="data-caption:type.ad">
+      <div class="still-item-overlay">
+        <div><h4>La Grange à Bécanes</h4><span data-i18n="type.ad">Publicité</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Agrandissement de l'image" data-i18n-attr="aria-label:lb.aria">
+  <div class="lb-inner">
+    <img src="" alt="">
+    <button class="lb-close" aria-label="Fermer" data-i18n-attr="aria-label:lb.close">✕</button>
+    <div class="lb-caption"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-logo"><div style="width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);flex-shrink:0;"></div>Damien Balga</div>
+    <p data-i18n="footer.role">Étalonneur Vidéo · Coloriste</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.youtube.com/@damienbalga" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/damien.balga/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/damien-balga-étudiant-création-numérique-colorimétrie-cinéma-montage-graphisme/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="footer-right">© 2026 — Damien Balga</div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr" data-i18n-title="contact.title" data-i18n-desc="contact.desc">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Damien Balga · Colorist</title>
+  <meta name="description" content="Contactez Damien Balga pour vos projets de color grading, étalonnage vidéo, film, clip ou publicité.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ---- Styles spécifiques page Contact ---- */
+
+    /* Hero pleine hauteur */
+    .contact-hero {
+      min-height: 40vh;
+      display: flex; align-items: flex-end;
+      padding: 120px 48px 60px;
+      max-width: 1200px; margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-hero-inner { max-width: 640px; }
+    .contact-hero h1 { margin-bottom: 14px; }
+    .contact-hero p   { color: var(--dim); font-size: 1.05rem; max-width: 500px; }
+
+    /* Grille projets types */
+    .projects-types {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .ptype-card {
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .ptype-card:hover { border-color: var(--orange); background: rgba(232,130,42,0.04); }
+    .ptype-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .ptype-label {
+      font-family: var(--font-display);
+      font-size: 0.88rem; font-weight: 600; margin-bottom: 3px;
+    }
+    .ptype-desc { font-family: var(--font-mono); font-size: 0.65rem; color: var(--dimmer); letter-spacing: 1px; }
+
+    /* Section titre intermédiaire */
+    .contact-section-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .contact-section-title::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--border);
+    }
+
+    @media (max-width: 900px) {
+      .projects-types { grid-template-columns: repeat(2, 1fr); }
+      .contact-hero { padding: 110px 24px 50px; }
+    }
+    @media (max-width: 480px) {
+      .projects-types { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cinematic-bg" aria-hidden="true"><div class="cinematic-bg-c"></div></div>
+
+<!-- INTRO -->
+<div class="intro" aria-hidden="true">
+  <div class="intro-scanline"></div>
+  <div class="intro-content">
+    <h1>Contact</h1>
+    <p class="intro-sub">Damien Balga · Colorist</p>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo" role="button" tabindex="0">
+    <div class="logo-dot" aria-hidden="true"></div>
+    Damien Balga
+  </div>
+  <div class="lang-switch" role="group" aria-label="Langue" data-i18n-attr="aria-label:lang.group">
+    <button type="button" class="lang-btn active" data-lang="fr" lang="fr" aria-pressed="true" aria-label="Français" title="Français">FR</button>
+    <button type="button" class="lang-btn" data-lang="en" lang="en" aria-pressed="false" aria-label="English" title="English">EN</button>
+    <button type="button" class="lang-btn" data-lang="de" lang="de" aria-pressed="false" aria-label="Deutsch" title="Deutsch">DE</button>
+  </div>
+
+  <button class="menu-toggle" data-i18n-attr="aria-label:menu.label" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav>
+    <a href="index.html" data-i18n="nav.home">Accueil</a>
+    <a href="work.html" data-i18n="nav.work">Réalisations</a>
+    <a href="stills.html" data-i18n="nav.stills">Stills</a>
+    <a href="index.html#before" data-i18n="nav.ba">Avant / Après</a>
+    <a href="index.html#about" data-i18n="nav.about">À propos</a>
+    <a href="contact.html" class="active nav-cta" data-i18n="nav.contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO CONTACT -->
+<div class="contact-hero">
+  <div class="contact-hero-inner fade-up">
+    <span class="section-eyebrow" data-i18n="contact.eyebrow">Travaillons ensemble</span>
+    <h1 data-i18n="contact.h1">Donnons vie à<br><span style="color:var(--orange)">vos images</span></h1>
+    <p data-i18n="contact.hero.p">
+      Disponible pour des projets de color grading, publicité, clip ou court-métrage.
+      Mon objectif : donner une identité visuelle forte et cohérente à vos images.
+    </p>
+  </div>
+</div>
+
+<!-- CONTENU PRINCIPAL -->
+<div class="contact-section" aria-label="Informations de contact" data-i18n-attr="aria-label:contact.section.aria">
+  <div class="contact-layout">
+
+    <!-- COLONNE GAUCHE -->
+    <div class="contact-left">
+
+      <!-- Types de projets -->
+      <h2 style="margin-bottom:24px;" class="fade-up" data-i18n="contact.h2">Pour quel projet ?</h2>
+
+      <div class="projects-types">
+        <div class="ptype-card fade-up">
+          <div class="ptype-icon">🎬</div>
+          <div class="ptype-label" data-i18n="contact.pt.film">Film</div>
+          <div class="ptype-desc" data-i18n="contact.pt.film.d">Court-métrage · Documentaire</div>
+        </div>
+        <div class="ptype-card fade-up">
+          <div class="ptype-icon">🎵</div>
+          <div class="ptype-label" data-i18n="contact.pt.clip">Clip</div>
+          <div class="ptype-desc" data-i18n="contact.pt.clip.d">Clip musical · Teaser</div>
+        </div>
+        <div class="ptype-card fade-up">
+          <div class="ptype-icon">📺</div>
+          <div class="ptype-label" data-i18n="contact.pt.ad">Pub</div>
+          <div class="ptype-desc" data-i18n="contact.pt.ad.d">Publicité · Brand content</div>
+        </div>
+        <div class="ptype-card fade-up">
+          <div class="ptype-icon">🎨</div>
+          <div class="ptype-label" data-i18n="contact.pt.regrade">Regrade</div>
+          <div class="ptype-desc" data-i18n="contact.pt.regrade.d">Regrade · Look dev</div>
+        </div>
+      </div>
+
+      <!-- Coordonnées directes -->
+      <p class="contact-section-title fade-up" data-i18n="contact.details">Coordonnées</p>
+
+      <div class="contact-links">
+
+        <a href="mailto:damienbalga@gmail.com" class="contact-btn fade-up"
+           aria-label="Envoyer un mail à damienbalga@gmail.com" data-i18n-attr="aria-label:contact.mail.aria">
+          <div class="contact-btn-icon">✉️</div>
+          <div class="cb-info">
+            <span class="cb-label">Email</span>
+            <span class="cb-value">damienbalga@gmail.com</span>
+          </div>
+          <span class="contact-btn-arrow">→</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/damien-balga-étudiant-création-numérique-colorimétrie-cinéma-montage-graphisme/"
+           target="_blank" rel="noopener"
+           class="contact-btn fade-up" aria-label="LinkedIn de Damien Balga" data-i18n-attr="aria-label:contact.li.aria">
+          <div class="contact-btn-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0a66c2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </div>
+          <div class="cb-info">
+            <span class="cb-label">LinkedIn</span>
+            <span class="cb-value">Damien Balga</span>
+          </div>
+          <span class="contact-btn-arrow">→</span>
+        </a>
+
+      </div>
+
+      <!-- Réseaux sociaux -->
+      <p class="contact-section-title fade-up" data-i18n="contact.social">Réseaux</p>
+
+      <div class="social-grid">
+
+        <a href="https://www.youtube.com/@damienbalga" target="_blank" rel="noopener"
+           class="social-card fade-up" style="--accent:var(--orange);" aria-label="YouTube de Damien Balga" data-i18n-attr="aria-label:contact.yt.aria">
+          <div class="social-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#ff0000">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/>
+            </svg>
+          </div>
+          <span class="social-name">YouTube</span>
+        </a>
+
+        <a href="https://www.instagram.com/damien.balga/" target="_blank" rel="noopener"
+           class="social-card fade-up" style="--accent:#c13584;" aria-label="Instagram de Damien Balga" data-i18n-attr="aria-label:contact.ig.aria">
+          <div class="social-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c13584" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="#c13584" stroke="none"/>
+            </svg>
+          </div>
+          <span class="social-name">Instagram</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/damien-balga-étudiant-création-numérique-colorimétrie-cinéma-montage-graphisme/"
+           target="_blank" rel="noopener"
+           class="social-card fade-up" style="--accent:#0a66c2;" aria-label="LinkedIn de Damien Balga" data-i18n-attr="aria-label:contact.li.aria">
+          <div class="social-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0a66c2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </div>
+          <span class="social-name">LinkedIn</span>
+        </a>
+
+        <a href="https://vimeo.com/damienbalga" target="_blank" rel="noopener"
+           class="social-card fade-up" style="--accent:#1ab7ea;" aria-label="Vimeo de Damien Balga" data-i18n-attr="aria-label:contact.vm.aria">
+          <div class="social-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#1ab7ea">
+              <path d="M21.4 8.1c-.1 2.4-1.8 5.7-5.1 9.9-3.4 4.4-6.3 6.5-8.6 6.5-1.4 0-2.6-1.3-3.7-4L2.5 14c-.7-2.5-1.5-3.7-2.5-3.7 0 0-1.2.9-3 2.7L0 11C2 9.3 4 7.3 5.6 5.8c1.9-1.7 3.3-2.6 4.2-2.7 2.2-.2 3.6 1.3 4.1 4.5.6 3.4 1 5.5 1.3 6.3.7 3.2 1.5 4.8 2.4 4.8.7 0 1.7-1.1 3.1-3.3 1.3-2.2 2.1-3.9 2.2-5.1.2-1.9-.6-2.9-2.2-2.9-.8 0-1.6.2-2.5.6 1.7-5.4 4.8-8 9.5-7.8z"/>
+            </svg>
+          </div>
+          <span class="social-name">Vimeo</span>
+        </a>
+
+      </div>
+
+      <!-- Infos rapides -->
+      <div style="display:flex; gap:20px; flex-wrap:wrap; margin-top:8px;" class="fade-up">
+        <div style="display:flex; align-items:center; gap:8px; font-size:0.82rem; color:var(--dim);">
+          <span style="color:var(--orange);">📍</span> <span data-i18n="contact.france">France</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:0.82rem; color:var(--dim);">
+          <span style="color:var(--orange);">🎬</span> <span data-i18n="footer.role">Étalonneur · Coloriste</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:0.82rem; color:var(--dim);">
+          <span style="color:var(--orange);">⚡</span> <span data-i18n="contact.fast">Réponse rapide</span>
+        </div>
+      </div>
+
+    </div><!-- /contact-left -->
+
+    <!-- COLONNE DROITE : Portrait + disponibilité -->
+    <div class="contact-right">
+
+      <!-- Portrait -->
+      <div class="contact-portrait fade-up">
+        <img src="img/Banniere.jpg" alt="Damien Balga – Étalonneur Vidéo" data-i18n-attr="alt:contact.portrait.alt">
+        <div class="cp-footer">
+          <div class="cp-name">Damien Balga</div>
+          <div class="cp-role">Colorist · DaVinci Resolve</div>
+        </div>
+      </div>
+
+      <!-- Badge disponibilité -->
+      <div class="avail-badge fade-up">
+        <div class="avail-dot"></div>
+        <div class="avail-text">
+          <strong data-i18n="contact.avail">Disponible pour de nouveaux projets</strong>
+          <span data-i18n="contact.avail.s">Film · Clip · Publicité · Regrade</span>
+        </div>
+      </div>
+
+      <!-- Bloc tags projet -->
+      <div style="background:var(--bg-3); border:1px solid var(--border); border-radius:var(--radius-md); padding:20px; margin-top:16px;" class="fade-up">
+        <p data-i18n="contact.spec" style="font-family:var(--font-mono); font-size:0.68rem; color:var(--dimmer); letter-spacing:2px; text-transform:uppercase; margin-bottom:14px;">Spécialités</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="tag tag-orange">Color Grading</span>
+          <span class="tag tag-cyan">Look Development</span>
+          <span class="tag" data-i18n="tag.film">Film</span>
+          <span class="tag" data-i18n="tag.clip">Clip</span>
+          <span class="tag" data-i18n="tag.ad">Publicité</span>
+          <span class="tag tag-orange">DaVinci Resolve</span>
+          <span class="tag">LUT Design</span>
+          <span class="tag" data-i18n="tag.short">Court-métrage</span>
+        </div>
+      </div>
+
+    </div><!-- /contact-right -->
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-logo"><div style="width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);flex-shrink:0;"></div>Damien Balga</div>
+    <p data-i18n="footer.role">Étalonneur Vidéo · Coloriste</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.youtube.com/@damienbalga" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/damien.balga/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/damien-balga-étudiant-création-numérique-colorimétrie-cinéma-montage-graphisme/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="footer-right">© 2026 — Damien Balga</div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
